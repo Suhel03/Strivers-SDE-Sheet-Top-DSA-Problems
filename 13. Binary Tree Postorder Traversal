@@ -1,0 +1,21 @@
+145. Binary Tree Postorder Traversal
+Problem Statement: Postorder Traversal of a binary tree. Write a program for the postorder traversal of a binary tree.
+
+
+
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        // TC : O(n) and SC : O(n) || O(h), n = h (h = height)
+        List<Integer> result = new ArrayList<>();
+        postorderTraversal(root, result);
+        return result;
+        
+    }
+    private static void postorderTraversal(TreeNode root, List<Integer> result){
+        if(root == null) return;
+
+        postorderTraversal(root.left, result);
+        postorderTraversal(root.right, result);
+        result.add(root.val);
+    }
+}
